@@ -5,7 +5,8 @@ WORKDIR /app
 # Gradle wrapper とソースをコピー
 COPY . .
 
-# jar をビルド
+# gradlew に実行権限を付与してビルド
+RUN chmod +x ./gradlew
 RUN ./gradlew clean build -x test
 
 # --- Runtime Stage ---
